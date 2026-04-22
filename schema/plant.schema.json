@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lixiangdapanji/aquascape-botany/blob/main/schema/plant.schema.json",
+  "title": "Plant",
+  "description": "Single aquatic plant species entry. Mirrors js/schema.ts (zod).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "scientificName",
+    "commonNames",
+    "taxonomy",
+    "growthForm",
+    "placement",
+    "sizeCm",
+    "envelope",
+    "difficulty",
+    "propagation",
+    "growthRate",
+    "sources"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Stable slug. Snake_case."
+    },
+    "scientificName": { "type": "string", "minLength": 3 },
+    "commonNames": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "zh"],
+      "properties": {
+        "en": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "zh": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "genus"],
+      "properties": {
+        "family": { "type": "string" },
+        "genus": { "type": "string" },
+        "species": { "type": ["string", "null"] }
+      }
+    },
+    "growthForm": {
+      "enum": ["stem", "rosette", "carpeting", "epiphyte", "moss", "floating", "rhizome"]
+    },
+    "placement": {
+      "type": "array",
+      "items": { "enum": ["foreground", "midground", "background", "attached", "floating"] },
+      "minItems": 1
+    },
+    "sizeCm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["height", "spread"],
+      "properties": {
+        "height": { "$ref": "#/$defs/rangeNullable" },
+        "spread": { "$ref": "#/$defs/rangeNullable" }
+      }
+    },
+    "envelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "temperatureC": { "$ref": "#/$defs/rangeWithUnit" },
+        "ph": { "$ref": "#/$defs/rangeWithUnit" },
+        "gh": { "$ref": "#/$defs/rangeWithUnit" },
+        "par": { "$ref": "#/$defs/rangeWithUnit" },
+        "co2": { "$ref": "#/$defs/rangeWithUnit" },
+        "no3": { "$ref": "#/$defs/rangeWithUnit" },
+        "po4": { "$ref": "#/$defs/rangeWithUnit" },
+        "k": { "$ref": "#/$defs/rangeWithUnit" },
+        "fe": { "$ref": "#/$defs/rangeWithUnit" }
+      }
+    },
+    "difficulty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "label"],
+      "properties": {
+        "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "label": { "enum": ["easy", "medium", "hard", "expert"] }
+      }
+    },
+    "propagation": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "topping",
+          "side-shoots",
+          "runners",
+          "rhizome-division",
+          "adventitious-plantlets",
+          "spores",
+          "fragmentation",
+          "seed"
+        ]
+      },
+      "minItems": 1
+    },
+    "growthRate": { "enum": ["slow", "medium", "fast"] },
+    "notes": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["citeKey"],
+        "properties": {
+          "citeKey": { "type": "string" },
+          "url": { "type": ["string", "null"], "format": "uri" }
+        }
+      },
+      "minItems": 1
+    },
+    "imageLicense": {
+      "enum": [
+        "CC0-1.0",
+        "CC-BY-4.0",
+        "CC-BY-SA-4.0",
+        "CC-BY-3.0",
+        "CC-BY-SA-3.0",
+        "original",
+        "needs-replacement"
+      ]
+    }
+  },
+  "$defs": {
+    "rangeNullable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "opt", "max"],
+      "properties": {
+        "min": { "type": ["number", "null"] },
+        "opt": { "type": ["number", "null"] },
+        "max": { "type": ["number", "null"] }
+      }
+    },
+    "rangeWithUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "opt", "max", "unit"],
+      "properties": {
+        "min": { "type": ["number", "null"] },
+        "opt": { "type": ["number", "null"] },
+        "max": { "type": ["number", "null"] },
+        "unit": { "type": "string" }
+      }
+    }
+  }
+}

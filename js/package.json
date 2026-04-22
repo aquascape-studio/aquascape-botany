@@ -1,0 +1,32 @@
+{
+  "name": "@aquascape/botany",
+  "version": "0.1.0",
+  "description": "Aquascape-studio plant data + zod schema (consumer library)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./plants.json": "./dist/plants.json"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup index.ts --format esm --dts && cp ../data/plants.json dist/plants.json",
+    "test": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

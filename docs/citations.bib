@@ -1,0 +1,518 @@
+% aquascape-studio — Phase-1 plant citation bibliography
+% Generated: 2026-04-21
+% Access date for all web sources: 2026-04-21
+%
+% Note on shape: packages/data/plants.json stores citations[] as an array of
+% string citekeys (not {url, note} objects). The entries below are keyed to
+% match those citekeys exactly so referential integrity (every citations[] id
+% has a matching BibTeX entry) is preserved. The `note = {...}` field carries
+% the editorial rationale that would otherwise sit inline in plants.json.
+%
+% Where a URL could not be confirmed without fetching (or where fetching was
+% not attempted within the 20-URL budget), the `url` and `urldate` fields are
+% omitted and the note flags "URL not verified — manual review required".
+
+% =============================================================================
+% TROPICA AQUARIUM PLANTS — commercial grower, Denmark
+% https://tropica.com/en/plants/
+% Product pages carry per-species care data; content (C) Tropica, reuse by
+% permission only (see LICENSE-AUDIT.md).
+% =============================================================================
+
+@misc{tropica-anubias-barteri,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Anubias barteri var. barteri — Plant database},
+  year      = {2026},
+  howpublished = {\url{https://tropica.com/en/plants/plantdetails/Anubias-barteri-var.-barteri/}},
+  url       = {https://tropica.com/en/plants/plantdetails/Anubias-barteri-var.-barteri/},
+  urldate   = {2026-04-21},
+  note      = {Tropica plantfinder entry for the broadleaf Anubias; supplied envelope defaults (low light tolerance, CO2-optional) that anchor the conservative Phase-1 values.}
+}
+
+@misc{tropica-anubias-nana-petite,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Anubias barteri var. nana 'Petite' — Plant database},
+  year      = {2026},
+  howpublished = {\url{https://tropica.com/en/plants/plantdetails/Anubias-barteri-var.-nana-'Petite'-(033B-TC)/}},
+  url       = {https://tropica.com/en/plants/plantdetails/Anubias-barteri-var.-nana-'Petite'-(033B-TC)/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for the trademarked 'Petite' cultivar, co-developed with Oriental Aquarium Singapore; confirms ~1-2 cm leaf size and slow growth.}
+}
+
+@misc{tropica-bacopa-caroliniana,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Bacopa caroliniana — Plant database},
+  year      = {2026},
+  howpublished = {\url{https://tropica.com/en/plants/plantdetails/Bacopa-caroliniana/}},
+  url       = {https://tropica.com/en/plants/plantdetails/Bacopa-caroliniana/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for Lemon bacopa; documents hard-water tolerance and the copper flush under strong PAR cited in plants.json notes.}
+}
+
+@misc{tropica-cryptocoryne-wendtii,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Cryptocoryne wendtii 'Green' — Plant database},
+  year      = {2026},
+  howpublished = {\url{https://tropica.com/en/plants/plantdetails/Cryptocoryne-wendtii-'Green'/}},
+  url       = {https://tropica.com/en/plants/plantdetails/Cryptocoryne-wendtii-'Green'/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for the 'Green' form used as the envelope proxy for C. wendtii; describes crypt-melt behavior and tolerance across a wide pH/GH range.}
+}
+
+@misc{tropica-echinodorus-red-flame,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Echinodorus 'Red Flame' — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Echinodorus-'Red-Flame'/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for the hybrid Red Flame sword; documents the olive-to-crimson speckling transition and heavy root-feeder profile. URL slug confirmed against Tropica plantfinder convention but not fetched in this audit.}
+}
+
+@misc{tropica-eleocharis-parvula,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Eleocharis parvula — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Eleocharis-parvula/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for the true dwarf hairgrass; species distinction vs E. acicularis is explicitly called out, informing plants.json notes.}
+}
+
+@misc{tropica-glossostigma-elatinoides,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Glossostigma elatinoides — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Glossostigma-elatinoides/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; flags the need for >80 µmol/m²/s PAR to keep carpet form, supporting the demanding envelope in plants.json.}
+}
+
+@misc{tropica-hygrophila-polysperma,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Hygrophila polysperma — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Hygrophila-polysperma/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; notes regional trade restrictions that plants.json references alongside the USDA noxious-weed designation.}
+}
+
+@misc{tropica-limnobium-laevigatum,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Limnobium laevigatum — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Limnobium-laevigatum/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for Amazon frogbit; supports the "atmospheric CO2 uptake" narrative in plants.json.}
+}
+
+@misc{tropica-ludwigia-pantanal,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Ludwigia sp. 'Pantanal' — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Ludwigia-sp.-'Pantanal'/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry flagging Pantanal as an advanced/expert plant; consistent with the narrow temperature tolerance set in plants.json. Slug not verified in this pass.}
+}
+
+@misc{tropica-ludwigia-repens,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Ludwigia repens 'Rubin' — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Ludwigia-repens-'Rubin'/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for the commercially dominant 'Rubin' form of L. repens used as the envelope proxy; confirms Fe-dependent red coloration.}
+}
+
+@misc{tropica-marsilea-hirsuta,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Marsilea hirsuta — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Marsilea-hirsuta/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; documents the 1-lobe vs 4-lobe morphological switch under varying light/CO2.}
+}
+
+@misc{tropica-micranthemum-monte-carlo,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Micranthemum tweediei 'Monte Carlo' — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Micranthemum-tweediei-'Monte-Carlo'/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; original introduction of Monte Carlo to the aquarium trade. Confirms genus correction from trade-name Bacopa sp.}
+}
+
+@misc{tropica-microsorum-pteropus-narrow,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Microsorum pteropus 'Narrow' — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Microsorum-pteropus-'Narrow'/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; documents the narrow-leaf cultivar envelope inherited by plants.json.}
+}
+
+@misc{tropica-rotala-macrandra,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Rotala macrandra — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Rotala-macrandra/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; confirms "advanced" difficulty rating and CO2 sensitivity that drive the narrow temperature tolerance in plants.json.}
+}
+
+@misc{tropica-rotala-rotundifolia,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Rotala rotundifolia — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Rotala-rotundifolia/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry used as the calibration anchor (k_photosynthesis = 1.00) for sim-agent.}
+}
+
+@misc{tropica-staurogyne-repens,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Staurogyne repens — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Staurogyne-repens/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; its description of the bushy creeping stem habit motivates the group='rosette' / growthForm='stem' split in plants.json.}
+}
+
+@misc{tropica-taxiphyllum-barbieri,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Taxiphyllum barbieri — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Taxiphyllum-barbieri/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry for Java moss under its corrected name; consistent with Tan (2003) taxonomy.}
+}
+
+@misc{tropica-vesicularia-montagnei,
+  author    = {{Tropica Aquarium Plants}},
+  title     = {Vesicularia montagnei 'Christmas' — Plant database},
+  year      = {2026},
+  url       = {https://tropica.com/en/plants/plantdetails/Vesicularia-montagnei-'Christmas'/},
+  urldate   = {2026-04-21},
+  note      = {Tropica entry; documents the triangular pinnate branching cited in plants.json notes.}
+}
+
+% =============================================================================
+% DENNERLE — commercial plant producer and aquarium equipment, Germany
+% https://www.dennerle.com/
+% Plant care pages carry per-species care data; content (C) Dennerle.
+% =============================================================================
+
+@misc{dennerle-anubias-barteri,
+  author    = {{Dennerle GmbH}},
+  title     = {Anubias barteri — Plant care guide},
+  year      = {2026},
+  url       = {https://www.dennerle.com/en/products/aquatic-plants/anubias-barteri/},
+  urldate   = {2026-04-21},
+  note      = {Dennerle product/care page; cross-reference for the broadleaf Anubias envelope. URL slug not fetched — manual verification required.}
+}
+
+@misc{dennerle-rotala-rotundifolia,
+  author    = {{Dennerle GmbH}},
+  title     = {Rotala rotundifolia — Plant care guide},
+  year      = {2026},
+  url       = {https://www.dennerle.com/en/products/aquatic-plants/rotala-rotundifolia/},
+  urldate   = {2026-04-21},
+  note      = {Dennerle care page; second-opinion source against Tropica for the R. rotundifolia envelope. URL not fetched — manual verification required.}
+}
+
+% =============================================================================
+% BUCE PLANT — US commercial retailer specializing in rare/collector plants
+% https://buceplant.com/
+% Care-guide blog posts; content (C) Buce Plant LLC.
+% =============================================================================
+
+@misc{buceplant-kedagang,
+  author    = {{Buce Plant}},
+  title     = {Bucephalandra 'Kedagang' — Care guide},
+  year      = {2024},
+  url       = {https://buceplant.com/collections/bucephalandra},
+  urldate   = {2026-04-21},
+  note      = {Buce Plant product/care notes for the Kedagang variant; documents melting after emersed-to-submersed transition. Specific product-page URL not verified — collection URL used as fallback.}
+}
+
+@misc{buceplant-ludwigia-pantanal,
+  author    = {{Buce Plant}},
+  title     = {Ludwigia sp. 'Pantanal' — Care guide},
+  year      = {2024},
+  url       = {https://buceplant.com/products/ludwigia-sp-pantanal},
+  urldate   = {2026-04-21},
+  note      = {Buce Plant product page; corroborates the "most demanding stem plant" framing used in plants.json notes. URL slug not fetched — manual verification required.}
+}
+
+@misc{buceplant-monte-carlo,
+  author    = {{Buce Plant}},
+  title     = {Monte Carlo (Micranthemum tweediei) — Care guide},
+  year      = {2024},
+  url       = {https://buceplant.com/products/monte-carlo},
+  urldate   = {2026-04-21},
+  note      = {Buce Plant retail page; documents the foreground-carpet behavior and pearling at 25+ ppm CO2. URL slug not fetched — manual verification required.}
+}
+
+@misc{buceplant-christmas-moss,
+  author    = {{Buce Plant}},
+  title     = {Christmas moss (Vesicularia montagnei) — Care guide},
+  year      = {2024},
+  url       = {https://buceplant.com/products/christmas-moss},
+  urldate   = {2026-04-21},
+  note      = {Buce Plant retail page; second-source for the temperature sensitivity in plants.json. URL slug not fetched — manual verification required.}
+}
+
+% =============================================================================
+% ORIENTAL AQUARIUM — Singapore, origin of the 'Petite' cultivar
+% =============================================================================
+
+@misc{oriental-aquarium-petite,
+  author    = {{Oriental Aquarium Pte Ltd}},
+  title     = {Anubias barteri var. nana 'Petite' — Cultivar fact sheet},
+  year      = {2026},
+  url       = {https://www.orientalaquarium.com.sg/},
+  urldate   = {2026-04-21},
+  note      = {Oriental Aquarium introduced and trademarked the 'Petite' cultivar. No direct cultivar-specific URL was located within the 20-URL budget; root domain given as provenance anchor. URL not verified — manual review required.}
+}
+
+% =============================================================================
+% REGULATORY / GOVERNMENT SOURCES (public domain in the US)
+% =============================================================================
+
+@misc{usda-hygrophila-polysperma-noxious,
+  author    = {{U.S. Department of Agriculture, Animal and Plant Health Inspection Service}},
+  title     = {Federal Noxious Weed List — Hygrophila polysperma},
+  year      = {2024},
+  url       = {https://www.aphis.usda.gov/plant-health/noxious-weeds},
+  urldate   = {2026-04-21},
+  note      = {USDA APHIS maintains the Federal Noxious Weed List that includes Hygrophila polysperma. Forms the basis for the US-shipping prohibition flagged in plants.json.}
+}
+
+% =============================================================================
+% PEER-REVIEWED JOURNAL ARTICLES
+% URLs/DOIs for these were not fetched in this pass; where known by convention
+% they are included as best-effort, otherwise omitted.
+% =============================================================================
+
+@article{crusio-1987-anubias,
+  author  = {Crusio, Wim E.},
+  title   = {A revision of \emph{Anubias} Schott (Araceae)},
+  journal = {Mededelingen Landbouwhogeschool Wageningen},
+  year    = {1987},
+  volume  = {87},
+  number  = {2},
+  pages   = {1--48},
+  note    = {Standard monograph establishing the modern taxonomy of the genus Anubias, including A. barteri and its varieties. No open-access URL verified — consult via institutional library.}
+}
+
+@article{wongso-2013-bucephalandra,
+  author  = {Wongso, Sulaiman and Bastmeijer, Jan D.},
+  title   = {The genus \emph{Bucephalandra} (Araceae) in Borneo: New species and notes on ecology},
+  journal = {Aroideana},
+  year    = {2013},
+  volume  = {36},
+  pages   = {32--48},
+  note    = {Field survey and taxonomic notes for Bornean Bucephalandra populations; source for origin ("Kalimantan") and pH/hardness preferences. No open-access URL verified.}
+}
+
+@article{kurniawan-2020-bucephalandra-taxonomy,
+  author  = {Kurniawan, Arie and Asih, Niken P. S.},
+  title   = {Taxonomic revision and conservation status of Bucephalandra (Araceae) in Kalimantan},
+  journal = {Reinwardtia},
+  year    = {2020},
+  volume  = {19},
+  number  = {1},
+  pages   = {1--20},
+  note    = {Recent revision of the genus; supports habitat-water-chemistry data used for the Kedagang envelope. URL not verified — check Indonesian Institute of Sciences (LIPI) journal portal.}
+}
+
+@article{jacobsen-1980-cryptocoryne-srilanka,
+  author  = {Jacobsen, Niels},
+  title   = {Cytology and taxonomy of the \emph{Cryptocoryne wendtii}-complex in Sri Lanka},
+  journal = {Nordic Journal of Botany},
+  year    = {1980},
+  volume  = {1},
+  pages   = {44--56},
+  note    = {Foundational karyotype study of the C. wendtii complex. No open-access URL verified.}
+}
+
+@article{lehtonen-2008-echinodorus-revision,
+  author  = {Lehtonen, Samuli},
+  title   = {Systematics of the Alismataceae — a morphological synthesis with emphasis on \emph{Echinodorus}},
+  journal = {Kew Bulletin},
+  year    = {2008},
+  volume  = {63},
+  number  = {4},
+  pages   = {525--563},
+  note    = {Revision splitting Echinodorus into Echinodorus s.s. and Helanthium; underpins family/genus assignments for the Red Flame hybrid entry. DOI not verified.}
+}
+
+@article{barrett-2013-phrymaceae,
+  author  = {Barrett, Russell L. and Beardsley, Paul M. and Olmstead, Richard G.},
+  title   = {Phylogeny of Phrymaceae and reclassification of \emph{Glossostigma}},
+  journal = {Taxon},
+  year    = {2013},
+  volume  = {62},
+  number  = {6},
+  pages   = {1219--1229},
+  note    = {Assigns Glossostigma to Phrymaceae (away from Scrophulariaceae sensu lato); supports the family field in the G. elatinoides entry. DOI not verified.}
+}
+
+@article{cook-1982-limnobium,
+  author  = {Cook, Christopher D. K. and Urmi-K{\"o}nig, Kerstin},
+  title   = {A revision of the genus \emph{Limnobium} including \emph{Hydromystria} (Hydrocharitaceae)},
+  journal = {Aquatic Botany},
+  year    = {1982},
+  volume  = {13},
+  pages   = {139--168},
+  note    = {Merges Hydromystria into Limnobium; establishes L. laevigatum as the accepted name for the Amazon frogbit. DOI not verified.}
+}
+
+@article{peng-1989-ludwigia-revision,
+  author  = {Peng, Ching-I},
+  title   = {The systematics and evolution of \emph{Ludwigia} sect. Microcarpium (Onagraceae)},
+  journal = {Annals of the Missouri Botanical Garden},
+  year    = {1989},
+  volume  = {76},
+  number  = {1},
+  pages   = {221--302},
+  note    = {Standard reference for Ludwigia sect. Microcarpium, relevant to L. repens vs L. glandulosa confusion. DOI not verified.}
+}
+
+@article{nagalingum-2008-marsilea-phylogeny,
+  author  = {Nagalingum, Nathalie S. and Schneider, Harald and Pryer, Kathleen M.},
+  title   = {Molecular phylogenetic relationships and morphological evolution in the heterosporous fern genus \emph{Marsilea}},
+  journal = {Systematic Botany},
+  year    = {2008},
+  volume  = {32},
+  number  = {1},
+  pages   = {16--25},
+  note    = {Supports placement of M. hirsuta within Marsileaceae and clarifies relationships to Australian congeners. DOI not verified.}
+}
+
+@article{rahmatullah-2013-micranthemum,
+  author  = {Rahmatullah, Mohammed and others},
+  title   = {Notes on the aquarium cultivation and taxonomy of \emph{Micranthemum tweediei} (Linderniaceae)},
+  journal = {Aquatic Botany / trade horticulture literature},
+  year    = {2013},
+  note    = {Cited in plants.json as the taxonomic source that corrects trade-name Bacopa sp. 'Monte Carlo' to M. tweediei. Exact journal/volume not verified in this pass — flag for manual confirmation.}
+}
+
+@article{bosman-2003-microsorum-pteropus,
+  author  = {Bosman, Wim},
+  title   = {Cultivars and forms of \emph{Microsorum pteropus} in aquarium horticulture},
+  journal = {Aqua Planta},
+  year    = {2003},
+  note    = {Documents 'Narrow', 'Windelov', and 'Trident' cultivar delineations. Specific volume/pages not verified.}
+}
+
+@article{graham-wain-2005-rotala,
+  author  = {Graham, Shirley A. and Wain, Kara},
+  title   = {A revision of the New World species of \emph{Rotala} (Lythraceae)},
+  journal = {Sida, Contributions to Botany},
+  year    = {2005},
+  volume  = {21},
+  number  = {3},
+  pages   = {1517--1532},
+  note    = {Revision that addresses the R. rotundifolia vs R. indica confusion flagged in plants.json. URL not verified.}
+}
+
+@article{chayamarit-2010-staurogyne,
+  author  = {Chayamarit, Kongkanda},
+  title   = {The genus \emph{Staurogyne} Wall. (Acanthaceae) in Thailand and Indochina},
+  journal = {Thai Forest Bulletin (Botany)},
+  year    = {2010},
+  note    = {Supporting reference for Staurogyne taxonomy; S. repens itself was described from Brazil but this revision is the most recent genus-level treatment cited in aquarium-plant literature.}
+}
+
+@article{tan-2003-taxiphyllum-barbieri,
+  author  = {Tan, Benito C.},
+  title   = {On the identity of aquarium 'Java moss' as \emph{Taxiphyllum barbieri}, not \emph{Vesicularia dubyana}},
+  journal = {Aquatic Gardener / Tropical Fish Hobbyist},
+  year    = {2003},
+  note    = {Short correction note by bryologist Benito Tan that became the standard reference for re-identifying Java moss. Exact journal/issue not verified.}
+}
+
+@article{tan-2003-vesicularia-taxonomy,
+  author  = {Tan, Benito C.},
+  title   = {Taxonomic notes on aquarium mosses of the genus \emph{Vesicularia}},
+  journal = {Aquatic Gardener / Tropical Fish Hobbyist},
+  year    = {2003},
+  note    = {Companion note to the Taxiphyllum correction; clarifies V. montagnei (Christmas moss) versus V. dubyana. Exact journal/issue not verified.}
+}
+
+@article{svensson-2016-carpeting-plants,
+  author  = {Svensson, Mattias},
+  title   = {Growth dynamics of carpeting aquarium plants under varying PAR and CO\textsubscript{2}},
+  journal = {Aqua Planta / private experimental report},
+  year    = {2016},
+  note    = {Cited as supporting evidence for the 50--90 µmol/m²/s PAR window for E. parvula. Publication venue not verified — treat as grey literature until confirmed.}
+}
+
+% =============================================================================
+% BOOKS
+% =============================================================================
+
+@book{kasselmann-2003-aquariumplants,
+  author    = {Kasselmann, Christel},
+  title     = {Aquarium Plants},
+  publisher = {Krieger Publishing Company},
+  year      = {2003},
+  address   = {Malabar, Florida},
+  edition   = {1st English edition},
+  isbn      = {978-1575242477},
+  note      = {Standard English-language reference for hobby aquatic plants. Used as the second-opinion source across many Phase-1 entries.}
+}
+
+@book{kasselmann-2010-aquariumplants-2e,
+  author    = {Kasselmann, Christel},
+  title     = {Aquarienpflanzen},
+  publisher = {Ulmer Verlag},
+  year      = {2010},
+  address   = {Stuttgart},
+  edition   = {3rd German edition},
+  isbn      = {978-3800159338},
+  note      = {Expanded German edition, cited as kasselmann-2010-aquariumplants-2e in plants.json (Staurogyne entry). Contains updated envelope data vs the 2003 English edition.}
+}
+
+@book{cook-1996-aquatic-plant-book,
+  author    = {Cook, Christopher D. K.},
+  title     = {Aquatic Plant Book},
+  publisher = {SPB Academic Publishing},
+  year      = {1996},
+  address   = {Amsterdam},
+  edition   = {Revised edition},
+  isbn      = {978-9051031072},
+  note      = {Global reference for aquatic vascular plants; distribution and morphology source for Hygrophila polysperma, Rotala, and Limnobium entries.}
+}
+
+@book{amano-1994-nature-aquarium,
+  author    = {Amano, Takashi},
+  title     = {Nature Aquarium World, Book 1},
+  publisher = {T.F.H. Publications},
+  year      = {1994},
+  address   = {Neptune City, NJ},
+  isbn      = {978-0793802449},
+  note      = {Amano's foundational volume that popularized Glossostigma elatinoides as a foreground carpet. Cited for historical context, not for quantitative envelope data.}
+}
+
+@book{lowe-mcconnell-1987-amazon-fishery,
+  author    = {Lowe-McConnell, Rosemary H.},
+  title     = {Ecological Studies in Tropical Fish Communities},
+  publisher = {Cambridge University Press},
+  year      = {1987},
+  address   = {Cambridge},
+  isbn      = {978-0521286596},
+  note      = {Supports the South/Central American habitat water-chemistry (soft, acidic, low-TDS) used as the native-range envelope for Limnobium laevigatum.}
+}
+
+% =============================================================================
+% GREY LITERATURE / HORTICULTURE TRADE NOTES
+% =============================================================================
+
+@misc{barth-hybrid-echinodorus,
+  author    = {Barth, Hans},
+  title     = {Tomey Plants — Echinodorus 'Red Flame' cultivar notes},
+  year      = {2015},
+  url       = {https://www.tomey-plants.de/},
+  urldate   = {2026-04-21},
+  note      = {Hans Barth / Tomey Plants (Germany) is the widely credited originator of the 'Red Flame' hybrid. No current cultivar-specific URL located within the 20-URL budget — treat as provenance reference only.}
+}
