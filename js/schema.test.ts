@@ -19,8 +19,8 @@ describe("plants.json", () => {
   });
 
   it("has exactly the Phase 1 target count of species", () => {
-    // Phase 1 target: 20 MVP species.
-    expect(plants.length).toBe(20);
+    // Phase 1 target: 20 MVP species + 6 stem-plant batch-1 additions = 26.
+    expect(plants.length).toBe(26);
   });
 
   it("has unique IDs", () => {
