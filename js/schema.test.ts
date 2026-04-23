@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import plantsJson from "../plants.json" with { type: "json" };
-import { plantArraySchema, plants, byId, byGrowthForm } from "../src/index.js";
+import plantsJson from "../data/plants.json" with { type: "json" };
+import { plantArraySchema, plants, byId, byGrowthForm } from "./index.js";
 
 describe("plants.json", () => {
   it("parses cleanly against plantArraySchema", () => {

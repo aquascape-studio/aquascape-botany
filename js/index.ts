@@ -29,7 +29,7 @@ export function bySpecies(scientificName: string): Plant | undefined {
 }
 
 export function byDifficulty(score: 1 | 2 | 3 | 4 | 5): Plant[] {
-  return plants.filter((p) => p.difficulty.score === score);
+  return plants.filter((p) => p.difficulty === score);
 }
 
 export function byGrowthForm(form: Plant["growthForm"]): Plant[] {
