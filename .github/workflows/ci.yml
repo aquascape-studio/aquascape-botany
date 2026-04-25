@@ -11,6 +11,9 @@ on:
 # Both will be regenerated from zod via zod-to-json-schema + datamodel-
 # code-generator in a follow-up, then wired back into CI.
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   js:
     runs-on: ubuntu-latest
