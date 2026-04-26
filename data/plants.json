@@ -1513,5 +1513,587 @@
     "notes": "Named for triangular pinnate branching that resembles a fir tree. More temperature-sensitive than Java moss — melts above 27°C. Best attached to driftwood or mesh; CO2 accelerates the characteristic compact form.",
     "images": [],
     "citations": ["tan-2003-vesicularia-taxonomy", "tropica-vesicularia-montagnei", "buceplant-christmas-moss"]
+  },
+  {
+    "id": "cryptocoryne-parva",
+    "scientificName": "Cryptocoryne parva",
+    "family": "Araceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "class": "Liliopsida",
+      "order": "Alismatales",
+      "family": "Araceae",
+      "genus": "Cryptocoryne",
+      "species": "parva"
+    },
+    "commonNames": {
+      "en": ["Dwarf crypt", "Cryptocoryne parva"],
+      "zh": ["矮椒草", "小椒草"]
+    },
+    "pinyin": ["ai jiao cao", "xiao jiao cao"],
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": ["Sri Lanka"],
+    "difficulty": 2,
+    "difficultyLabel": "medium",
+    "envelope": {
+      "light":        { "min": 30, "opt": 60,  "max": 120, "unit": "µmol/m²/s" },
+      "co2":          { "min": 5,  "opt": 20,  "max": 35,  "unit": "ppm" },
+      "temperatureC": { "min": 20, "opt": 25,  "max": 28 },
+      "pH":           { "min": 5.5,"opt": 6.8, "max": 7.5 },
+      "gh":           { "min": 2,  "opt": 7,   "max": 16 },
+      "kh":           { "min": 1,  "opt": 4,   "max": 10 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "low",    "phosphorusDemand": "low",    "potassiumDemand": "low" },
+      "micros": { "ironDemand": "low",        "traceDemand": "low" },
+      "rootFeeder": true,
+      "waterColumnFeeder": false
+    },
+    "growth": {
+      "rate": "slow",
+      "maxHeightCm": 6,
+      "maxSpreadCm": 5,
+      "internodeCm": null,
+      "propagation": ["runners"]
+    },
+    "placement": ["foreground"],
+    "colorRange": ["bright-green"],
+    "colorHex": "#6aad3a",
+    "sim": {
+      "k_photosynthesis": 0.38,
+      "k_light": 42,
+      "k_co2": 14,
+      "preferred_temp_c": 25,
+      "temp_tolerance_c": 3.0
+    },
+    "notes": "The smallest Cryptocoryne species — leaves rarely exceed 5 cm even under ideal conditions. Unlike other crypts it does not substantially change leaf shape between emersed and submersed forms, so 'crypt melt' is mild. Excellent foreground carpeting in low to medium light with CO2.",
+    "images": [],
+    "citations": ["jacobsen-1980-cryptocoryne-srilanka", "tropica-cryptocoryne-parva", "kasselmann-2003-aquariumplants"]
+  },
+  {
+    "id": "cryptocoryne-balansae",
+    "scientificName": "Cryptocoryne crispatula var. balansae",
+    "family": "Araceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "class": "Liliopsida",
+      "order": "Alismatales",
+      "family": "Araceae",
+      "genus": "Cryptocoryne",
+      "species": "crispatula",
+      "cultivar": "var. balansae"
+    },
+    "commonNames": {
+      "en": ["Balansae crypt", "Ruffled cryptocoryne"],
+      "zh": ["波浪椒草", "巴兰萨椒草"]
+    },
+    "pinyin": ["bo lang jiao cao", "ba lan sa jiao cao"],
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": ["Thailand, Laos, Vietnam"],
+    "difficulty": 2,
+    "difficultyLabel": "medium",
+    "envelope": {
+      "light":        { "min": 30, "opt": 60,  "max": 130, "unit": "µmol/m²/s" },
+      "co2":          { "min": 5,  "opt": 20,  "max": 35,  "unit": "ppm" },
+      "temperatureC": { "min": 22, "opt": 26,  "max": 30 },
+      "pH":           { "min": 5.5,"opt": 6.8, "max": 7.8 },
+      "gh":           { "min": 2,  "opt": 8,   "max": 18 },
+      "kh":           { "min": 1,  "opt": 5,   "max": 12 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "medium", "phosphorusDemand": "medium", "potassiumDemand": "medium" },
+      "micros": { "ironDemand": "medium",     "traceDemand": "low" },
+      "rootFeeder": true,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "medium",
+      "maxHeightCm": 50,
+      "maxSpreadCm": 10,
+      "internodeCm": null,
+      "propagation": ["runners"]
+    },
+    "placement": ["midground", "background"],
+    "colorRange": ["dark-green", "ruffled-green"],
+    "colorHex": "#3d6e2a",
+    "sim": {
+      "k_photosynthesis": 0.55,
+      "k_light": 45,
+      "k_co2": 15,
+      "preferred_temp_c": 26,
+      "temp_tolerance_c": 3.5
+    },
+    "notes": "Produces dramatically long, narrow leaves with strongly crinkled margins — a distinctive background plant. Tolerates moderate currents. Like most crypts it is a heavy root feeder; root tabs significantly improve growth rate and leaf texture.",
+    "images": [],
+    "citations": ["jacobsen-1980-cryptocoryne-srilanka", "tropica-cryptocoryne-balansae", "kasselmann-2003-aquariumplants"]
+  },
+  {
+    "id": "echinodorus-tenellus",
+    "scientificName": "Echinodorus tenellus",
+    "family": "Alismataceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "class": "Liliopsida",
+      "order": "Alismatales",
+      "family": "Alismataceae",
+      "genus": "Echinodorus",
+      "species": "tenellus"
+    },
+    "commonNames": {
+      "en": ["Pygmy chain sword", "Dwarf Amazon sword"],
+      "zh": ["迷你皇冠草", "矮皇冠"]
+    },
+    "pinyin": ["mi ni huang guan cao", "ai huang guan"],
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": ["North and Central America, South America"],
+    "difficulty": 2,
+    "difficultyLabel": "medium",
+    "envelope": {
+      "light":        { "min": 40, "opt": 80,  "max": 160, "unit": "µmol/m²/s" },
+      "co2":          { "min": 10, "opt": 25,  "max": 40,  "unit": "ppm" },
+      "temperatureC": { "min": 18, "opt": 24,  "max": 28 },
+      "pH":           { "min": 6.0,"opt": 6.8, "max": 7.5 },
+      "gh":           { "min": 2,  "opt": 6,   "max": 14 },
+      "kh":           { "min": 1,  "opt": 4,   "max": 8 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "medium", "phosphorusDemand": "medium", "potassiumDemand": "medium" },
+      "micros": { "ironDemand": "medium",     "traceDemand": "low" },
+      "rootFeeder": true,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "medium",
+      "maxHeightCm": 10,
+      "maxSpreadCm": 15,
+      "internodeCm": null,
+      "propagation": ["runners"]
+    },
+    "placement": ["foreground"],
+    "colorRange": ["light-green", "red-high-light"],
+    "colorHex": "#8ac45e",
+    "sim": {
+      "k_photosynthesis": 0.60,
+      "k_light": 58,
+      "k_co2": 18,
+      "preferred_temp_c": 24,
+      "temp_tolerance_c": 3.5
+    },
+    "notes": "Spreads via stolons to form dense foreground carpets. Under intense light and CO2 the narrow leaves develop reddish coloration. Avoid alkaline hard water — leaves become chlorotic above pH 7.5. A smaller, carpeting alternative to larger Amazon sword species.",
+    "images": [],
+    "citations": ["lehtonen-2008-echinodorus-revision", "tropica-echinodorus-tenellus", "kasselmann-2003-aquariumplants"]
+  },
+  {
+    "id": "microsorum-pteropus-windelov",
+    "scientificName": "Microsorum pteropus 'Windelov'",
+    "family": "Polypodiaceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "class": "Polypodiopsida",
+      "order": "Polypodiales",
+      "family": "Polypodiaceae",
+      "genus": "Microsorum",
+      "species": "pteropus",
+      "cultivar": "Windelov"
+    },
+    "commonNames": {
+      "en": ["Windelov Java fern", "Lace Java fern"],
+      "zh": ["细叶铁皇冠", "温德洛夫铁皇冠"]
+    },
+    "pinyin": ["xi ye tie huang guan", "wen de luo fu tie huang guan"],
+    "group": "epiphyte",
+    "growthForm": "epiphyte",
+    "origin": ["Cultivar — Tropica, Denmark (from Southeast Asian parent)"],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+      "light":        { "min": 20, "opt": 50,  "max": 120, "unit": "µmol/m²/s" },
+      "co2":          { "min": 0,  "opt": 15,  "max": 35,  "unit": "ppm" },
+      "temperatureC": { "min": 18, "opt": 24,  "max": 28 },
+      "pH":           { "min": 5.0,"opt": 6.5, "max": 7.5 },
+      "gh":           { "min": 1,  "opt": 6,   "max": 16 },
+      "kh":           { "min": 0,  "opt": 4,   "max": 12 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "low",    "phosphorusDemand": "low",    "potassiumDemand": "low" },
+      "micros": { "ironDemand": "low",        "traceDemand": "low" },
+      "rootFeeder": false,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "slow",
+      "maxHeightCm": 20,
+      "maxSpreadCm": 20,
+      "internodeCm": null,
+      "propagation": ["rhizome-division", "adventitious-plantlets"]
+    },
+    "placement": ["midground", "attached"],
+    "colorRange": ["dark-green"],
+    "colorHex": "#2f5a30",
+    "sim": {
+      "k_photosynthesis": 0.33,
+      "k_light": 30,
+      "k_co2": 8,
+      "preferred_temp_c": 24,
+      "temp_tolerance_c": 4.0
+    },
+    "notes": "Trademarked Tropica cultivar with finely forked leaf tips giving a lace-like appearance. Attach to rock or driftwood — burying the rhizome causes rot. Adventitious plantlets form on older leaves. Extremely tolerant and beginner-friendly despite its delicate appearance.",
+    "images": [],
+    "citations": ["tropica-microsorum-windelov", "kasselmann-2003-aquariumplants"]
+  },
+  {
+    "id": "bolbitis-heudelotii",
+    "scientificName": "Bolbitis heudelotii",
+    "family": "Lomariopsidaceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "class": "Polypodiopsida",
+      "order": "Polypodiales",
+      "family": "Lomariopsidaceae",
+      "genus": "Bolbitis",
+      "species": "heudelotii"
+    },
+    "commonNames": {
+      "en": ["African water fern", "Congo fern"],
+      "zh": ["非洲水蕨", "刚果水蕨"]
+    },
+    "pinyin": ["fei zhou shui jue", "gang guo shui jue"],
+    "group": "epiphyte",
+    "growthForm": "epiphyte",
+    "origin": ["Tropical Africa"],
+    "difficulty": 3,
+    "difficultyLabel": "medium",
+    "envelope": {
+      "light":        { "min": 30, "opt": 60,  "max": 120, "unit": "µmol/m²/s" },
+      "co2":          { "min": 10, "opt": 25,  "max": 40,  "unit": "ppm" },
+      "temperatureC": { "min": 22, "opt": 26,  "max": 28 },
+      "pH":           { "min": 5.5,"opt": 6.5, "max": 7.0 },
+      "gh":           { "min": 1,  "opt": 4,   "max": 10 },
+      "kh":           { "min": 0,  "opt": 2,   "max": 6 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "low",    "phosphorusDemand": "low",    "potassiumDemand": "low" },
+      "micros": { "ironDemand": "medium",     "traceDemand": "medium" },
+      "rootFeeder": false,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "slow",
+      "maxHeightCm": 30,
+      "maxSpreadCm": 25,
+      "internodeCm": null,
+      "propagation": ["rhizome-division", "spores"]
+    },
+    "placement": ["midground", "background", "attached"],
+    "colorRange": ["translucent-green", "dark-green"],
+    "colorHex": "#1e6b3c",
+    "sim": {
+      "k_photosynthesis": 0.42,
+      "k_light": 45,
+      "k_co2": 18,
+      "preferred_temp_c": 26,
+      "temp_tolerance_c": 2.5
+    },
+    "notes": "Pinnate semi-transparent leaves with a brilliant emerald sheen under good current. Requires CO2 and moderate light — stagnant soft water is the key requirement. Attach to rocks or wood with thread or glue; do not bury the rhizome. Hard water causes rapid deterioration.",
+    "images": [],
+    "citations": ["tropica-bolbitis-heudelotii", "kasselmann-2003-aquariumplants", "dennerle-bolbitis"]
+  },
+  {
+    "id": "riccardia-chamedryfolia",
+    "scientificName": "Riccardia chamedryfolia",
+    "family": "Aneuraceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Marchantiophyta",
+      "class": "Jungermanniopsida",
+      "order": "Pelliales",
+      "family": "Aneuraceae",
+      "genus": "Riccardia",
+      "species": "chamedryfolia"
+    },
+    "commonNames": {
+      "en": ["Mini pellia", "Coral moss", "Riccardia moss"],
+      "zh": ["迷你珊瑚莫斯", "迷你派莉亚"]
+    },
+    "pinyin": ["mi ni shan hu mo si", "mi ni pai li ya"],
+    "group": "moss",
+    "growthForm": "moss",
+    "origin": ["Widespread — Asia, Europe, Americas"],
+    "difficulty": 3,
+    "difficultyLabel": "medium",
+    "envelope": {
+      "light":        { "min": 30, "opt": 60,  "max": 120, "unit": "µmol/m²/s" },
+      "co2":          { "min": 10, "opt": 25,  "max": 40,  "unit": "ppm" },
+      "temperatureC": { "min": 18, "opt": 22,  "max": 26 },
+      "pH":           { "min": 5.5,"opt": 6.5, "max": 7.5 },
+      "gh":           { "min": 1,  "opt": 5,   "max": 12 },
+      "kh":           { "min": 0,  "opt": 3,   "max": 8 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "low",    "phosphorusDemand": "low",    "potassiumDemand": "low" },
+      "micros": { "ironDemand": "low",        "traceDemand": "medium" },
+      "rootFeeder": false,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "slow",
+      "maxHeightCm": 2,
+      "maxSpreadCm": 15,
+      "internodeCm": null,
+      "propagation": ["fragmentation"]
+    },
+    "placement": ["foreground", "attached"],
+    "colorRange": ["deep-green"],
+    "colorHex": "#2e5e28",
+    "sim": {
+      "k_photosynthesis": 0.30,
+      "k_light": 45,
+      "k_co2": 18,
+      "preferred_temp_c": 22,
+      "temp_tolerance_c": 3.0
+    },
+    "notes": "A liverwort, not a true moss — classified as a hepatic bryophyte. Forms dense, coral-like cushions highly valued in Nature aquascape compositions. Requires CO2 and good flow; stagnant conditions lead to algae smothering. Sensitive to temperature above 26°C.",
+    "images": [],
+    "citations": ["tropica-riccardia-chamedryfolia", "buceplant-mini-pellia", "maberly-1994-aquatic-macrophytes"]
+  },
+  {
+    "id": "fissidens-fontanus",
+    "scientificName": "Fissidens fontanus",
+    "family": "Fissidentaceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Bryophyta",
+      "class": "Bryopsida",
+      "order": "Fissidentales",
+      "family": "Fissidentaceae",
+      "genus": "Fissidens",
+      "species": "fontanus"
+    },
+    "commonNames": {
+      "en": ["Phoenix moss", "Pocket moss", "Water pocket moss"],
+      "zh": ["凤凰莫斯", "袋形莫斯"]
+    },
+    "pinyin": ["feng huang mo si", "dai xing mo si"],
+    "group": "moss",
+    "growthForm": "moss",
+    "origin": ["North America, Europe"],
+    "difficulty": 3,
+    "difficultyLabel": "medium",
+    "envelope": {
+      "light":        { "min": 20, "opt": 50,  "max": 120, "unit": "µmol/m²/s" },
+      "co2":          { "min": 5,  "opt": 20,  "max": 35,  "unit": "ppm" },
+      "temperatureC": { "min": 15, "opt": 21,  "max": 24 },
+      "pH":           { "min": 6.0,"opt": 6.8, "max": 7.5 },
+      "gh":           { "min": 2,  "opt": 6,   "max": 14 },
+      "kh":           { "min": 1,  "opt": 4,   "max": 8 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "low",    "phosphorusDemand": "low",    "potassiumDemand": "low" },
+      "micros": { "ironDemand": "low",        "traceDemand": "low" },
+      "rootFeeder": false,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "slow",
+      "maxHeightCm": 5,
+      "maxSpreadCm": 20,
+      "internodeCm": null,
+      "propagation": ["fragmentation"]
+    },
+    "placement": ["foreground", "attached", "midground"],
+    "colorRange": ["medium-green"],
+    "colorHex": "#4d7c32",
+    "sim": {
+      "k_photosynthesis": 0.33,
+      "k_light": 35,
+      "k_co2": 14,
+      "preferred_temp_c": 21,
+      "temp_tolerance_c": 3.5
+    },
+    "notes": "Distinctive two-ranked 'pocket' leaf arrangement differentiates it from all other aquatic mosses. Prefers cooler water — above 24°C growth stalls. Attach to hardscape with glue; anchoring thread works but is tedious given its fine structure. In aquascaping often sold as 'Phoenix Moss'.",
+    "images": [],
+    "citations": ["tropica-fissidens-fontanus", "maberly-1994-aquatic-macrophytes", "kasselmann-2003-aquariumplants"]
+  },
+  {
+    "id": "leptodictyum-riparium",
+    "scientificName": "Leptodictyum riparium",
+    "family": "Amblystegiaceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Bryophyta",
+      "class": "Bryopsida",
+      "order": "Hypnales",
+      "family": "Amblystegiaceae",
+      "genus": "Leptodictyum",
+      "species": "riparium"
+    },
+    "commonNames": {
+      "en": ["Stringy moss", "Creeping feather moss"],
+      "zh": ["细丝莫斯", "溪岸细网藓"]
+    },
+    "pinyin": ["xi si mo si", "xi an xi wang xian"],
+    "group": "moss",
+    "growthForm": "moss",
+    "origin": ["Cosmopolitan — Europe, Asia, North America"],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+      "light":        { "min": 10, "opt": 35,  "max": 100, "unit": "µmol/m²/s" },
+      "co2":          { "min": 0,  "opt": 10,  "max": 25,  "unit": "ppm" },
+      "temperatureC": { "min": 10, "opt": 20,  "max": 26 },
+      "pH":           { "min": 5.5,"opt": 6.5, "max": 7.8 },
+      "gh":           { "min": 2,  "opt": 6,   "max": 18 },
+      "kh":           { "min": 1,  "opt": 4,   "max": 12 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "low",    "phosphorusDemand": "low",    "potassiumDemand": "low" },
+      "micros": { "ironDemand": "low",        "traceDemand": "low" },
+      "rootFeeder": false,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "fast",
+      "maxHeightCm": 10,
+      "maxSpreadCm": 30,
+      "internodeCm": null,
+      "propagation": ["fragmentation"]
+    },
+    "placement": ["attached", "midground", "foreground"],
+    "colorRange": ["light-green"],
+    "colorHex": "#78b84a",
+    "sim": {
+      "k_photosynthesis": 0.45,
+      "k_light": 22,
+      "k_co2": 7,
+      "preferred_temp_c": 20,
+      "temp_tolerance_c": 5.5
+    },
+    "notes": "One of the fastest-growing and hardiest aquatic mosses. Long, wispy strands drape beautifully over hardscape or attach loosely to mesh. Excellent refuge for fry and shrimp. Requires regular pruning to prevent light-blocking mat formation.",
+    "images": [],
+    "citations": ["tropica-leptodictyum-riparium", "maberly-1994-aquatic-macrophytes"]
+  },
+  {
+    "id": "pistia-stratiotes",
+    "scientificName": "Pistia stratiotes",
+    "family": "Araceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "class": "Liliopsida",
+      "order": "Alismatales",
+      "family": "Araceae",
+      "genus": "Pistia",
+      "species": "stratiotes"
+    },
+    "commonNames": {
+      "en": ["Water lettuce", "Tropical duckweed", "Nile cabbage"],
+      "zh": ["大薸", "水莲花", "水白菜"]
+    },
+    "pinyin": ["da piao", "shui lian hua", "shui bai cai"],
+    "group": "floating",
+    "growthForm": "floating",
+    "origin": ["Pantropical — Africa (origin), now worldwide"],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+      "light":        { "min": 60, "opt": 120, "max": 250, "unit": "µmol/m²/s" },
+      "co2":          { "min": 0,  "opt": 0,   "max": 5,   "unit": "ppm" },
+      "temperatureC": { "min": 20, "opt": 27,  "max": 32 },
+      "pH":           { "min": 6.0,"opt": 7.0, "max": 8.0 },
+      "gh":           { "min": 2,  "opt": 8,   "max": 20 },
+      "kh":           { "min": 1,  "opt": 5,   "max": 14 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "high",   "phosphorusDemand": "high",   "potassiumDemand": "medium" },
+      "micros": { "ironDemand": "low",        "traceDemand": "low" },
+      "rootFeeder": false,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "fast",
+      "maxHeightCm": 10,
+      "maxSpreadCm": 15,
+      "internodeCm": null,
+      "propagation": ["runners"]
+    },
+    "placement": ["floating"],
+    "colorRange": ["light-green", "velvety-green"],
+    "colorHex": "#90c855",
+    "sim": {
+      "k_photosynthesis": 1.20,
+      "k_light": 85,
+      "k_co2": 3,
+      "preferred_temp_c": 27,
+      "temp_tolerance_c": 4.0
+    },
+    "notes": "Rosette-shaped floating plant that aggressively exports nitrogen and phosphorus via its extensive dangling root system — a popular biological filter. Sensitive to water splashing on leaves which causes rot. Invasive in tropical open water; never release outdoors. Long roots serve as spawning substrate and fry cover.",
+    "images": [],
+    "citations": ["tropica-pistia-stratiotes", "kasselmann-2003-aquariumplants", "cook-1974-pistia"]
+  },
+  {
+    "id": "salvinia-natans",
+    "scientificName": "Salvinia natans",
+    "family": "Salviniaceae",
+    "taxonomy": {
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "class": "Polypodiopsida",
+      "order": "Salviniales",
+      "family": "Salviniaceae",
+      "genus": "Salvinia",
+      "species": "natans"
+    },
+    "commonNames": {
+      "en": ["Floating fern", "Water butterfly wings"],
+      "zh": ["槐叶苹", "浮萍蕨"]
+    },
+    "pinyin": ["huai ye ping", "fu ping jue"],
+    "group": "floating",
+    "growthForm": "floating",
+    "origin": ["Europe, Asia — temperate and subtropical"],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+      "light":        { "min": 40, "opt": 100, "max": 200, "unit": "µmol/m²/s" },
+      "co2":          { "min": 0,  "opt": 0,   "max": 5,   "unit": "ppm" },
+      "temperatureC": { "min": 15, "opt": 24,  "max": 28 },
+      "pH":           { "min": 5.5,"opt": 6.8, "max": 8.0 },
+      "gh":           { "min": 1,  "opt": 6,   "max": 18 },
+      "kh":           { "min": 0,  "opt": 4,   "max": 12 }
+    },
+    "nutrients": {
+      "macros": { "nitrogenDemand": "high",   "phosphorusDemand": "medium", "potassiumDemand": "low" },
+      "micros": { "ironDemand": "low",        "traceDemand": "low" },
+      "rootFeeder": false,
+      "waterColumnFeeder": true
+    },
+    "growth": {
+      "rate": "fast",
+      "maxHeightCm": 2,
+      "maxSpreadCm": 3,
+      "internodeCm": null,
+      "propagation": ["fragmentation"]
+    },
+    "placement": ["floating"],
+    "colorRange": ["bright-green"],
+    "colorHex": "#8fce4c",
+    "sim": {
+      "k_photosynthesis": 1.10,
+      "k_light": 70,
+      "k_co2": 2,
+      "preferred_temp_c": 24,
+      "temp_tolerance_c": 5.0
+    },
+    "notes": "A true aquatic fern with two oval floating leaves covered in water-repelling hairs and one submerged root-like leaf. Naturalised across Eurasia but also widely cultivated. Provides shade for lower-light plants and excellent diffused light effect. Can double in biomass within a week under strong light — thin regularly.",
+    "images": [],
+    "citations": ["tropica-salvinia-natans", "maberly-1994-aquatic-macrophytes", "kasselmann-2003-aquariumplants"]
   }
 ]
