@@ -10,6 +10,7 @@ import plantsJson from "../data/plants.json" with { type: "json" };
 import { plantArraySchema, type Plant } from "./schema.js";
 
 export * from "./schema.js";
+export { generatePlantSvg, plantToSvg } from "./plantSvg.js";
 
 /**
  * Runtime-validated array of all plants.
