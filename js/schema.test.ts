@@ -28,6 +28,13 @@ describe("plants.json", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
+  it("every plant has a valid visual block", () => {
+    for (const p of plants) {
+      expect(p.visual, p.id).toBeDefined();
+    }
+    expect(plants.filter((p) => p.visual).length).toBe(plants.length);
+  });
+
   it("every plant has at least one citation", () => {
     for (const p of plants) {
       expect(p.citations.length).toBeGreaterThan(0);
