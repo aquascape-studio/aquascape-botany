@@ -45,6 +45,14 @@ export const propagationEnum = z.enum([
   "seed",
 ]);
 
+// Render-facing look (contract: aquascape-render src/contract.ts SpeciesLook).
+export const leafShapeEnum = z.enum([
+  "needle", "linear", "lanceolate", "ovate", "round", "strap", "cordate", "moss",
+]);
+export const leafArrangementEnum = z.enum([
+  "opposite", "whorled", "alternate", "rosette", "creeping", "mat",
+]);
+
 export const growthRateEnum = z.enum(["slow", "medium", "fast"]);
 
 export const difficultyLabelEnum = z.enum(["easy", "medium", "hard", "expert"]);
@@ -169,6 +177,19 @@ export const plantSchema = z.object({
   colorRange: z.array(z.string()).min(1), // descriptive tags, e.g. "green", "red-high-light"
   colorHex: z.string().regex(/^#[0-9a-fA-F]{6}$/), // color under good conditions
   sim: simCoefficients,
+  // Optional until every species has it; consumed by @aquascape-studio/render.
+  // Leaf dimensions are typical submersed-form values (cm) and need a citation.
+  visual: z
+    .object({
+      leafShape: leafShapeEnum,
+      arrangement: leafArrangementEnum,
+      leafLengthCm: z.number().positive().max(60),
+      leafWidthCm: z.number().positive().max(30),
+      leafDensity: z.number().min(0).max(1), // relative fullness, 1 = densest
+      tipColorHex: z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(), // red tips / young leaves
+    })
+    .strict()
+    .optional(),
   notes: z.string().min(1),
   images: z.array(image), // may be empty if no CC-BY/original asset yet
   citations: z.array(z.string()).min(1),
