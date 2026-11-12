@@ -127,6 +127,20 @@
         "original",
         "needs-replacement"
       ]
+    },
+    "visual": {
+      "type": "object",
+      "description": "Render-facing look; consumed by @aquascape-studio/render (SpeciesLook). Optional until every species has it.",
+      "additionalProperties": false,
+      "required": ["leafShape", "arrangement", "leafLengthCm", "leafWidthCm", "leafDensity"],
+      "properties": {
+        "leafShape": { "enum": ["needle", "linear", "lanceolate", "ovate", "round", "strap", "cordate", "moss"] },
+        "arrangement": { "enum": ["opposite", "whorled", "alternate", "rosette", "creeping", "mat"] },
+        "leafLengthCm": { "type": "number", "exclusiveMinimum": 0, "maximum": 60 },
+        "leafWidthCm": { "type": "number", "exclusiveMinimum": 0, "maximum": 30 },
+        "leafDensity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "tipColorHex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+      }
     }
   },
   "$defs": {
