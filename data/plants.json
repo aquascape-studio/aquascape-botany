@@ -2346,9 +2346,9 @@
     },
     "commonNames": {
       "en": ["Rotala wallichii", "Whorled rotala", "Pine-needle rotala"],
-      "zh": ["孔雀草", "瓦氏节节菜"]
+      "zh": ["红松尾", "瓦氏节节菜"]
     },
-    "pinyin": ["kong que cao", "wa shi jie jie cai"],
+    "pinyin": ["hong song wei", "wa shi jie jie cai"],
     "group": "stem",
     "growthForm": "stem",
     "origin": ["India, Southeast Asia"],
@@ -2696,9 +2696,9 @@
     },
     "commonNames": {
       "en": ["Cryptocoryne undulata", "Cryptocoryne undulata 'Broad Leaves'"],
-      "zh": ["波浪椒草", "宽叶波浪椒草"]
+      "zh": ["波叶椒草", "宽叶波叶椒草"]
     },
-    "pinyin": ["bo lang jiao cao", "kuan ye bo lang jiao cao"],
+    "pinyin": ["bo ye jiao cao", "kuan ye bo ye jiao cao"],
     "group": "rosette",
     "growthForm": "rosette",
     "origin": ["Sri Lanka"],
@@ -3397,9 +3397,9 @@
     },
     "commonNames": {
       "en": ["Pennywort 'Japan'", "Hydrocotyle tripartita", "Japan pennywort"],
-      "zh": ["日本珍珠草", "日本天胡荽"]
+      "zh": ["日本天胡荽", "三裂天胡荽"]
     },
-    "pinyin": ["ri ben zhen zhu cao", "ri ben tian hu sui"],
+    "pinyin": ["ri ben tian hu sui", "san lie tian hu sui"],
     "group": "carpeting",
     "growthForm": "carpeting",
     "origin": ["Trade name \"Japan\"; species native to Australasia/Asia"],
