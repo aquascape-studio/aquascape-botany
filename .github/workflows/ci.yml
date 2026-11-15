@@ -4,12 +4,8 @@ on:
   push:
     branches: [main]
 
-# plants.json is currently validated only by js/ (zod, real source of truth).
-# - py/ validator is out of sync with the data (Difficulty-as-object vs
-#   Difficulty-as-number, snake_case id vs kebab-case, different envelope).
-# - schema/plant.schema.json is likewise stale (expects `sources` field).
-# Both will be regenerated from zod via zod-to-json-schema + datamodel-
-# code-generator in a follow-up, then wired back into CI.
+# schema/plant.schema.json is GENERATED from js/schema.ts (zod); `pnpm validate`
+# fails if the checked-in file is stale. py/ validates against that same file.
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
@@ -29,12 +25,23 @@ jobs:
         with:
           node-version: "22"
       - run: pnpm install --no-frozen-lockfile
+      - run: pnpm validate
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build
 
+  py:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest "jsonschema>=4.21"
+      - run: pytest
+
   publish:
-    needs: js
+    needs: [js, py]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     defaults:

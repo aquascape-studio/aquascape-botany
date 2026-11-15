@@ -20,7 +20,7 @@ describe("plants.json", () => {
 
   it("has at least the Round 3 target count of species", () => {
     // Round 2: 26 original + 10 rosette/moss/fern/floating additions = 36.
-    expect(plants.length).toBeGreaterThanOrEqual(70);
+    expect(plants.length).toBeGreaterThanOrEqual(155);
   });
 
   it("has unique IDs", () => {
