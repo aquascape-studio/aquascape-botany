@@ -1,169 +1,681 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/lixiangdapanji/aquascape-botany/blob/main/schema/plant.schema.json",
+  "$id": "https://github.com/aquascape-studio/aquascape-botany/blob/main/schema/plant.schema.json",
   "title": "Plant",
-  "description": "Single aquatic plant species entry. Mirrors js/schema.ts (zod).",
+  "description": "Single aquatic plant species entry. GENERATED from js/schema.ts (zod) by `npm run gen:schema` - do not edit by hand.",
   "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "scientificName",
-    "commonNames",
-    "taxonomy",
-    "growthForm",
-    "placement",
-    "sizeCm",
-    "envelope",
-    "difficulty",
-    "propagation",
-    "growthRate",
-    "sources"
-  ],
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^[a-z][a-z0-9_]*$",
-      "description": "Stable slug. Snake_case."
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
-    "scientificName": { "type": "string", "minLength": 3 },
-    "commonNames": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["en", "zh"],
-      "properties": {
-        "en": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
-        "zh": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
-      }
+    "scientificName": {
+      "type": "string",
+      "minLength": 3
+    },
+    "family": {
+      "type": "string",
+      "minLength": 3
     },
     "taxonomy": {
       "type": "object",
-      "additionalProperties": false,
-      "required": ["family", "genus"],
       "properties": {
-        "family": { "type": "string" },
-        "genus": { "type": "string" },
-        "species": { "type": ["string", "null"] }
-      }
+        "kingdom": {
+          "type": "string"
+        },
+        "phylum": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "genus": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        },
+        "cultivar": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kingdom",
+        "phylum",
+        "class",
+        "order",
+        "family",
+        "genus",
+        "species"
+      ],
+      "additionalProperties": false
     },
-    "growthForm": {
-      "enum": ["stem", "rosette", "carpeting", "epiphyte", "moss", "floating", "rhizome"]
+    "commonNames": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "zh": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "en",
+        "zh"
+      ],
+      "additionalProperties": false
     },
-    "placement": {
+    "pinyin": {
       "type": "array",
-      "items": { "enum": ["foreground", "midground", "background", "attached", "floating"] },
+      "items": {
+        "type": "string"
+      },
       "minItems": 1
     },
-    "sizeCm": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["height", "spread"],
-      "properties": {
-        "height": { "$ref": "#/$defs/rangeNullable" },
-        "spread": { "$ref": "#/$defs/rangeNullable" }
-      }
+    "group": {
+      "type": "string",
+      "enum": [
+        "stem",
+        "rosette",
+        "carpeting",
+        "epiphyte",
+        "moss",
+        "floating",
+        "rhizome"
+      ]
+    },
+    "growthForm": {
+      "type": "string",
+      "enum": [
+        "stem",
+        "rosette",
+        "carpeting",
+        "epiphyte",
+        "moss",
+        "floating",
+        "rhizome"
+      ]
+    },
+    "origin": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "difficultyLabel": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard",
+        "expert"
+      ]
     },
     "envelope": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
-        "temperatureC": { "$ref": "#/$defs/rangeWithUnit" },
-        "ph": { "$ref": "#/$defs/rangeWithUnit" },
-        "gh": { "$ref": "#/$defs/rangeWithUnit" },
-        "par": { "$ref": "#/$defs/rangeWithUnit" },
-        "co2": { "$ref": "#/$defs/rangeWithUnit" },
-        "no3": { "$ref": "#/$defs/rangeWithUnit" },
-        "po4": { "$ref": "#/$defs/rangeWithUnit" },
-        "k": { "$ref": "#/$defs/rangeWithUnit" },
-        "fe": { "$ref": "#/$defs/rangeWithUnit" }
-      }
+        "light": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "opt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "min",
+            "opt",
+            "max",
+            "unit"
+          ],
+          "additionalProperties": false
+        },
+        "co2": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "opt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "min",
+            "opt",
+            "max",
+            "unit"
+          ],
+          "additionalProperties": false
+        },
+        "temperatureC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "opt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "min",
+            "opt",
+            "max"
+          ],
+          "additionalProperties": false
+        },
+        "pH": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "opt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "min",
+            "opt",
+            "max"
+          ],
+          "additionalProperties": false
+        },
+        "gh": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "opt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "min",
+            "opt",
+            "max"
+          ],
+          "additionalProperties": false
+        },
+        "kh": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "opt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "min",
+            "opt",
+            "max"
+          ],
+          "additionalProperties": false
+        },
+        "tdsPpm": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "opt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "min",
+            "opt",
+            "max"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "light",
+        "co2",
+        "temperatureC",
+        "pH",
+        "gh",
+        "kh"
+      ],
+      "additionalProperties": false
     },
-    "difficulty": {
+    "nutrients": {
       "type": "object",
-      "additionalProperties": false,
-      "required": ["score", "label"],
       "properties": {
-        "score": { "type": "integer", "minimum": 1, "maximum": 5 },
-        "label": { "enum": ["easy", "medium", "hard", "expert"] }
-      }
+        "macros": {
+          "type": "object",
+          "properties": {
+            "nitrogenDemand": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            "phosphorusDemand": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            "potassiumDemand": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            }
+          },
+          "required": [
+            "nitrogenDemand",
+            "phosphorusDemand",
+            "potassiumDemand"
+          ],
+          "additionalProperties": false
+        },
+        "micros": {
+          "type": "object",
+          "properties": {
+            "ironDemand": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            "traceDemand": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            }
+          },
+          "required": [
+            "ironDemand",
+            "traceDemand"
+          ],
+          "additionalProperties": false
+        },
+        "rootFeeder": {
+          "type": "boolean"
+        },
+        "waterColumnFeeder": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "macros",
+        "micros",
+        "rootFeeder",
+        "waterColumnFeeder"
+      ],
+      "additionalProperties": false
     },
-    "propagation": {
+    "growth": {
+      "type": "object",
+      "properties": {
+        "rate": {
+          "type": "string",
+          "enum": [
+            "slow",
+            "medium",
+            "fast"
+          ]
+        },
+        "maxHeightCm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "maxSpreadCm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "internodeCm": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "propagation": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "topping",
+              "side-shoots",
+              "runners",
+              "rhizome-division",
+              "adventitious-plantlets",
+              "spores",
+              "fragmentation",
+              "seed"
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "rate",
+        "maxHeightCm",
+        "maxSpreadCm",
+        "internodeCm",
+        "propagation"
+      ],
+      "additionalProperties": false
+    },
+    "placement": {
       "type": "array",
       "items": {
+        "type": "string",
         "enum": [
-          "topping",
-          "side-shoots",
-          "runners",
-          "rhizome-division",
-          "adventitious-plantlets",
-          "spores",
-          "fragmentation",
-          "seed"
+          "foreground",
+          "midground",
+          "background",
+          "attached",
+          "floating"
         ]
       },
       "minItems": 1
     },
-    "growthRate": { "enum": ["slow", "medium", "fast"] },
-    "notes": { "type": "string" },
-    "sources": {
+    "colorRange": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["citeKey"],
-        "properties": {
-          "citeKey": { "type": "string" },
-          "url": { "type": ["string", "null"], "format": "uri" }
-        }
+        "type": "string"
       },
       "minItems": 1
     },
-    "imageLicense": {
-      "enum": [
-        "CC0-1.0",
-        "CC-BY-4.0",
-        "CC-BY-SA-4.0",
-        "CC-BY-3.0",
-        "CC-BY-SA-3.0",
-        "original",
-        "needs-replacement"
-      ]
+    "colorHex": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "sim": {
+      "type": "object",
+      "properties": {
+        "k_photosynthesis": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "k_light": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "k_co2": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "preferred_temp_c": {
+          "type": "number"
+        },
+        "temp_tolerance_c": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "k_photosynthesis",
+        "k_light",
+        "k_co2",
+        "preferred_temp_c",
+        "temp_tolerance_c"
+      ],
+      "additionalProperties": false
     },
     "visual": {
       "type": "object",
-      "description": "Render-facing look; consumed by @aquascape-studio/render (SpeciesLook). Optional until every species has it.",
-      "additionalProperties": false,
-      "required": ["leafShape", "arrangement", "leafLengthCm", "leafWidthCm", "leafDensity"],
       "properties": {
-        "leafShape": { "enum": ["needle", "linear", "lanceolate", "ovate", "round", "strap", "cordate", "moss"] },
-        "arrangement": { "enum": ["opposite", "whorled", "alternate", "rosette", "creeping", "mat"] },
-        "leafLengthCm": { "type": "number", "exclusiveMinimum": 0, "maximum": 60 },
-        "leafWidthCm": { "type": "number", "exclusiveMinimum": 0, "maximum": 30 },
-        "leafDensity": { "type": "number", "minimum": 0, "maximum": 1 },
-        "tipColorHex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
-      }
-    }
-  },
-  "$defs": {
-    "rangeNullable": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["min", "opt", "max"],
-      "properties": {
-        "min": { "type": ["number", "null"] },
-        "opt": { "type": ["number", "null"] },
-        "max": { "type": ["number", "null"] }
+        "leafShape": {
+          "type": "string",
+          "enum": [
+            "needle",
+            "linear",
+            "lanceolate",
+            "ovate",
+            "round",
+            "strap",
+            "cordate",
+            "moss"
+          ]
+        },
+        "arrangement": {
+          "type": "string",
+          "enum": [
+            "opposite",
+            "whorled",
+            "alternate",
+            "rosette",
+            "creeping",
+            "mat"
+          ]
+        },
+        "leafLengthCm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 60
+        },
+        "leafWidthCm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 30
+        },
+        "leafDensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "tipColorHex": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      },
+      "required": [
+        "leafShape",
+        "arrangement",
+        "leafLengthCm",
+        "leafWidthCm",
+        "leafDensity"
+      ],
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string",
+            "enum": [
+              "CC0-1.0",
+              "CC-BY-4.0",
+              "CC-BY-SA-4.0",
+              "CC-BY-3.0",
+              "CC-BY-SA-3.0",
+              "original",
+              "needs-replacement"
+            ]
+          },
+          "credit": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "src",
+          "license",
+          "credit"
+        ],
+        "additionalProperties": false
       }
     },
-    "rangeWithUnit": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["min", "opt", "max", "unit"],
-      "properties": {
-        "min": { "type": ["number", "null"] },
-        "opt": { "type": ["number", "null"] },
-        "max": { "type": ["number", "null"] },
-        "unit": { "type": "string" }
-      }
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
     }
-  }
+  },
+  "required": [
+    "id",
+    "scientificName",
+    "family",
+    "taxonomy",
+    "commonNames",
+    "pinyin",
+    "group",
+    "growthForm",
+    "origin",
+    "difficulty",
+    "difficultyLabel",
+    "envelope",
+    "nutrients",
+    "growth",
+    "placement",
+    "colorRange",
+    "colorHex",
+    "sim",
+    "notes",
+    "images",
+    "citations"
+  ],
+  "additionalProperties": false
 }

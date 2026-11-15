@@ -1,108 +1,59 @@
-"""Pydantic validators mirroring schema/plant.schema.json and js/schema.ts.
+"""Validate plant records against the generated JSON Schema.
 
-Kept manually in sync with the other two. CI cross-checks each run.
+The schema (schema/plant.schema.json) is GENERATED from js/schema.ts (zod) by
+`cd js && npm run gen:schema`. There are intentionally no hand-written rules
+here: js/schema.ts is the single source of truth.
 """
 
 from __future__ import annotations
 
-from typing import Literal
+import json
+from functools import lru_cache
+from importlib.resources import files
+from pathlib import Path
+from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field
+from jsonschema import Draft202012Validator, FormatChecker
 
-GrowthForm = Literal["stem", "rosette", "carpeting", "epiphyte", "moss", "floating", "rhizome"]
-Placement = Literal["foreground", "midground", "background", "attached", "floating"]
-Propagation = Literal[
-    "topping",
-    "side-shoots",
-    "runners",
-    "rhizome-division",
-    "adventitious-plantlets",
-    "spores",
-    "fragmentation",
-    "seed",
-]
-GrowthRate = Literal["slow", "medium", "fast"]
-DifficultyLabel = Literal["easy", "medium", "hard", "expert"]
-License = Literal[
-    "CC0-1.0",
-    "CC-BY-4.0",
-    "CC-BY-SA-4.0",
-    "CC-BY-3.0",
-    "CC-BY-SA-3.0",
-    "original",
-    "needs-replacement",
-]
+Plant = dict[str, Any]
+
+_REPO_SCHEMA = Path(__file__).resolve().parents[2] / "schema" / "plant.schema.json"
 
 
-class _Strict(BaseModel):
-    model_config = ConfigDict(extra="forbid", populate_by_name=True)
+class PlantValidationError(ValueError):
+    """Raised when one or more plant records violate the schema."""
 
 
-class RangeNullable(_Strict):
-    min: float | None
-    opt: float | None
-    max: float | None
+def schema_text() -> str:
+    # Packaged data (wheel install) first, then repo-relative path (editable / checkout).
+    try:
+        return files("aquascape_botany").joinpath("_data", "plant.schema.json").read_text()
+    except (FileNotFoundError, ModuleNotFoundError):
+        return _REPO_SCHEMA.read_text()
 
 
-class RangeWithUnit(RangeNullable):
-    unit: str
+@lru_cache(maxsize=1)
+def load_schema() -> dict[str, Any]:
+    return json.loads(schema_text())
 
 
-class CommonNames(_Strict):
-    en: list[str] = Field(min_length=1)
-    zh: list[str] = Field(min_length=1)
+@lru_cache(maxsize=1)
+def _validator() -> Draft202012Validator:
+    schema = load_schema()
+    Draft202012Validator.check_schema(schema)
+    return Draft202012Validator(schema, format_checker=FormatChecker())
 
 
-class Taxonomy(_Strict):
-    family: str
-    genus: str
-    species: str | None = None
-
-
-class SizeCm(_Strict):
-    height: RangeNullable
-    spread: RangeNullable
-
-
-class Envelope(_Strict):
-    temperatureC: RangeWithUnit | None = None
-    ph: RangeWithUnit | None = None
-    gh: RangeWithUnit | None = None
-    par: RangeWithUnit | None = None
-    co2: RangeWithUnit | None = None
-    no3: RangeWithUnit | None = None
-    po4: RangeWithUnit | None = None
-    k: RangeWithUnit | None = None
-    fe: RangeWithUnit | None = None
-
-
-class Difficulty(_Strict):
-    score: int = Field(ge=1, le=5)
-    label: DifficultyLabel
-
-
-class Source(_Strict):
-    cite_key: str = Field(alias="citeKey")
-    url: str | None = None
-
-
-class Plant(_Strict):
-    id: str = Field(pattern=r"^[a-z][a-z0-9_]*$")
-    scientific_name: str = Field(alias="scientificName", min_length=3)
-    common_names: CommonNames = Field(alias="commonNames")
-    taxonomy: Taxonomy
-    growth_form: GrowthForm = Field(alias="growthForm")
-    placement: list[Placement] = Field(min_length=1)
-    size_cm: SizeCm = Field(alias="sizeCm")
-    envelope: Envelope
-    difficulty: Difficulty
-    propagation: list[Propagation] = Field(min_length=1)
-    growth_rate: GrowthRate = Field(alias="growthRate")
-    notes: str | None = None
-    sources: list[Source] = Field(min_length=1)
-    image_license: License | None = Field(alias="imageLicense", default=None)
-
-
-def validate_plants(data: list[dict]) -> list[Plant]:
-    """Raises pydantic.ValidationError on any bad entry."""
-    return [Plant.model_validate(item) for item in data]
+def validate_plants(data: list[Plant]) -> list[Plant]:
+    """Validate every record; raise PlantValidationError listing all problems."""
+    v = _validator()
+    problems: list[str] = []
+    for i, item in enumerate(data):
+        label = item.get("id", f"#{i}") if isinstance(item, dict) else f"#{i}"
+        for err in sorted(v.iter_errors(item), key=lambda e: list(e.absolute_path)):
+            loc = ".".join(str(p) for p in err.absolute_path) or "<root>"
+            problems.append(f"{label}: {loc}: {err.message}")
+    if problems:
+        shown = "\n".join(problems[:50])
+        raise PlantValidationError(f"{len(problems)} schema violation(s):\n{shown}")
+    return data

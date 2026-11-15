@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "aquascape-botany"
-version = "0.1.0"
+version = "0.6.0"
 description = "Aquatic-plant knowledge base consumer library (Python)"
 requires-python = ">=3.12"
 license = { text = "UNLICENSED" }
 dependencies = [
-  "pydantic>=2.8",
+  "jsonschema>=4.21",
 ]
 
 [project.optional-dependencies]
@@ -24,6 +24,7 @@ packages = ["aquascape_botany"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "../data/plants.json" = "aquascape_botany/_data/plants.json"
+"../schema/plant.schema.json" = "aquascape_botany/_data/plant.schema.json"
 
 [tool.ruff]
 line-length = 100
@@ -31,3 +32,4 @@ target-version = "py312"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]

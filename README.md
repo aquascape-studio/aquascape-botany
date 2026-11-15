@@ -8,7 +8,7 @@ Aquatic-plant knowledge base for aquascape-studio. Source-of-truth repo for
 ```
 .
 ├── data/
-│   └── plants.json            # canonical species list (20 MVP entries; grows)
+│   └── plants.json            # canonical species list (157 species; grows)
 ├── schema/
 │   └── plant.schema.json      # JSON Schema (draft-2020-12)
 ├── js/                        # TypeScript consumer package (@aquascape/botany)
@@ -21,7 +21,7 @@ Aquatic-plant knowledge base for aquascape-studio. Source-of-truth repo for
 │   │   └── validate.py
 │   └── pyproject.toml
 ├── docs/
-│   ├── citations.bib          # 49 BibTeX refs backing envelope values
+│   ├── citations.bib          # BibTeX refs backing envelope values (test enforces every cited key exists)
 │   └── LICENSE-AUDIT.md       # image/data license audit (commercial-safe)
 └── .github/workflows/ci.yml   # validates plants.json against BOTH schemas on every PR
 ```
@@ -46,11 +46,12 @@ either through the published packages or as a git submodule of this repo.
 
 Every PR runs:
 - `pnpm test` — TypeScript / zod
-- `pytest` — Python / pydantic
-- Cross-check: both validators must agree the JSON is well-formed.
+- `pnpm validate` — zod + ajv (2020-12) against generated `schema/plant.schema.json`; fails if that file is stale
+- `pytest` — Python / jsonschema against the same generated schema, plus BibTeX key check
 
-If the data shape changes, update `schema/plant.schema.json` + `js/schema.ts` +
-`py/aquascape_botany/validate.py` in the same PR and bump the package version.
+`js/schema.ts` is the single source of truth. After changing it run
+`cd js && npm run gen:schema` to regenerate `schema/plant.schema.json`; the Python
+validator reads that file, so nothing else needs hand-syncing.
 
 ## Owner
 

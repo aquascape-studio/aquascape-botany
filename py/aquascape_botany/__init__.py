@@ -9,7 +9,7 @@ from typing import Literal
 
 from aquascape_botany.validate import Plant, validate_plants
 
-__all__ = ["Plant", "plants", "by_id", "by_species", "by_growth_form", "PLANTS_JSON_PATH"]
+__all__ = ["Plant", "validate_plants", "plants", "by_id", "by_species", "by_growth_form", "PLANTS_JSON_PATH"]
 
 
 def _load() -> list[Plant]:
@@ -33,16 +33,16 @@ PLANTS_JSON_PATH: Path | None = _repo_data_path()
 
 
 def by_id(plant_id: str) -> Plant | None:
-    return next((p for p in plants if p.id == plant_id), None)
+    return next((p for p in plants if p["id"] == plant_id), None)
 
 
 def by_species(scientific_name: str) -> Plant | None:
     target = scientific_name.lower()
-    return next((p for p in plants if p.scientific_name.lower() == target), None)
+    return next((p for p in plants if p["scientificName"].lower() == target), None)
 
 
 GrowthForm = Literal["stem", "rosette", "carpeting", "epiphyte", "moss", "floating", "rhizome"]
 
 
 def by_growth_form(form: GrowthForm) -> list[Plant]:
-    return [p for p in plants if p.growth_form == form]
+    return [p for p in plants if p["growthForm"] == form]
