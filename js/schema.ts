@@ -144,6 +144,27 @@ const image = z.object({
 });
 
 // ---------------------------------------------------------------------------
+// Regulation (0.7.0)
+// ---------------------------------------------------------------------------
+
+export const regulationStatusEnum = z.enum([
+  "prohibited", // keeping / sale / import banned (e.g. EU Union list, US Federal Noxious Weed)
+  "restricted", // permit or regional restrictions
+  "watch", // official alert / watch list, not (yet) banned
+]);
+
+export const regulation = z
+  .object({
+    // "EU", "US", "US-FL", "AU", "AU-QLD", "NZ", "GB", "JP", "CA", ...
+    jurisdiction: z.string().regex(/^[A-Z]{2}(-[A-Z0-9]{1,3})?$/),
+    status: regulationStatusEnum,
+    listName: z.string().min(3), // e.g. "EU IAS Union list (Reg. 2016/1141)"
+    since: z.number().int().min(1900).max(2100).optional(), // year listed
+    citationKey: z.string().min(1),
+  })
+  .strict();
+
+// ---------------------------------------------------------------------------
 // Plant
 // ---------------------------------------------------------------------------
 
@@ -183,13 +204,17 @@ export const plantSchema = z.object({
     .object({
       leafShape: leafShapeEnum,
       arrangement: leafArrangementEnum,
-      leafLengthCm: z.number().positive().max(60),
+      leafLengthCm: z.number().positive().max(150), // 0.7.0: was 60 (Vallisneria gigantea etc.)
       leafWidthCm: z.number().positive().max(30),
       leafDensity: z.number().min(0).max(1), // relative fullness, 1 = densest
       tipColorHex: z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(), // red tips / young leaves
     })
     .strict()
     .optional(),
+  // 0.7.0 (orchestrator): known legal listings that restrict keeping / sale /
+  // release. Absent = none found, which is NOT a guarantee of legality.
+  // Every entry needs a citationKey present in docs/citations.bib.
+  regulated: z.array(regulation).min(1).optional(),
   notes: z.string().min(1),
   images: z.array(image), // may be empty if no CC-BY/original asset yet
   citations: z.array(z.string()).min(1),
