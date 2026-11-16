@@ -580,7 +580,7 @@
         "leafLengthCm": {
           "type": "number",
           "exclusiveMinimum": 0,
-          "maximum": 60
+          "maximum": 150
         },
         "leafWidthCm": {
           "type": "number",
@@ -605,6 +605,47 @@
         "leafDensity"
       ],
       "additionalProperties": false
+    },
+    "regulated": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "jurisdiction": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}(-[A-Z0-9]{1,3})?$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "prohibited",
+              "restricted",
+              "watch"
+            ]
+          },
+          "listName": {
+            "type": "string",
+            "minLength": 3
+          },
+          "since": {
+            "type": "integer",
+            "minimum": 1900,
+            "maximum": 2100
+          },
+          "citationKey": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "jurisdiction",
+          "status",
+          "listName",
+          "citationKey"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
     },
     "notes": {
       "type": "string",
