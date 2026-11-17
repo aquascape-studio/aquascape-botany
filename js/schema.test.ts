@@ -99,7 +99,7 @@ describe("searchPlants", () => {
         (p) =>
           p.scientificName.toLowerCase().includes("crypt") ||
           p.commonNames.en.some((n) => n.toLowerCase().includes("crypt")) ||
-          p.commonNames.zh.some((n) => n.toLowerCase().includes("crypt")),
+          p.id.includes("crypt"),
       ),
     ).toBe(true);
   });
@@ -113,5 +113,11 @@ describe("searchPlants", () => {
     const lower = searchPlants("anubias");
     const upper = searchPlants("ANUBIAS");
     expect(lower.length).toBe(upper.length);
+  });
+});
+
+describe("English-only data (schema 0.8.0)", () => {
+  it("plants.json contains no CJK characters", () => {
+    expect(/[一-鿿]/.test(JSON.stringify(plantsJson))).toBe(false);
   });
 });

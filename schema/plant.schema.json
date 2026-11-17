@@ -65,27 +65,12 @@
             "type": "string"
           },
           "minItems": 1
-        },
-        "zh": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
         }
       },
       "required": [
-        "en",
-        "zh"
+        "en"
       ],
       "additionalProperties": false
-    },
-    "pinyin": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1
     },
     "group": {
       "type": "string",
@@ -701,7 +686,6 @@
     "family",
     "taxonomy",
     "commonNames",
-    "pinyin",
     "group",
     "growthForm",
     "origin",
