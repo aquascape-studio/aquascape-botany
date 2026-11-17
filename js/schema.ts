@@ -81,10 +81,13 @@ const rangeWithUnit = range.extend({
   unit: z.string(),
 });
 
-const commonNames = z.object({
-  en: z.array(z.string()).min(1),
-  zh: z.array(z.string()).min(1),
-});
+// 0.8.0 (orchestrator, 2026-11-17): English-only. `zh` and `pinyin` were
+// removed by owner decision; `.strict()` rejects them if they reappear.
+const commonNames = z
+  .object({
+    en: z.array(z.string()).min(1),
+  })
+  .strict();
 
 const envelope = z.object({
   light: rangeWithUnit, // µmol/m²/s (PAR)
@@ -185,7 +188,6 @@ export const plantSchema = z.object({
     cultivar: z.string().optional(),
   }),
   commonNames,
-  pinyin: z.array(z.string()).min(1), // tones-stripped pinyin for fuzzy search
   group: growthFormEnum,
   growthForm: growthFormEnum,
   origin: z.array(z.string()).min(1),

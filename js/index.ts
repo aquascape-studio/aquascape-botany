@@ -54,8 +54,8 @@ export interface SearchFilters {
  * searchPlants — fuzzy name search + structured filters.
  *
  * @param query   Optional free-text query. Matched (case-insensitive substring)
- *                against scientific name, English common names, Chinese common
- *                names, and pinyin. Pass `undefined` or omit to skip text
+ *                against scientific name, English common names and the id.
+ *                Pass `undefined` or omit to skip text
  *                filtering.
  * @param filters Optional structured filters applied after text matching.
  * @returns       A new array of matching plants (order preserved from
@@ -78,8 +78,6 @@ export function searchPlants(
       const haystack = [
         p.scientificName,
         ...p.commonNames.en,
-        ...p.commonNames.zh,
-        ...p.pinyin,
         p.id,
       ]
         .join(" ")
